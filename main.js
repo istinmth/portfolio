@@ -19,13 +19,13 @@ camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
-// Torus
+// sphere
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xE0A100});
-const torus = new THREE.Mesh(geometry, material);
+const sphere = new THREE.Mesh(geometry, material);
 
-scene.add(torus);
+scene.add(sphere);
 
 // Lights
 
@@ -34,14 +34,6 @@ pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
-
-// Helpers
-
-// const lightHelper = new THREE.PointLightHelper(pointLight)
-// const gridHelper = new THREE.GridHelper(200, 50);
-// scene.add(lightHelper, gridHelper)
-
-// const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
@@ -108,9 +100,9 @@ function moveCamera() {
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
 
-  torus.rotation.x += 0.02;
-  torus.rotation.y += 0.035;
-  torus.rotation.z += 0.02;
+  sphere.rotation.x += 0.02;
+  sphere.rotation.y += 0.035;
+  sphere.rotation.z += 0.02;
 }
 
 document.body.onscroll = moveCamera;
@@ -121,9 +113,9 @@ moveCamera();
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.00075;
-  torus.rotation.y += 0.00075;
-  torus.rotation.z += 0.00075;
+  sphere.rotation.x += 0.00075;
+  sphere.rotation.y += 0.00075;
+  sphere.rotation.z += 0.00075;
 
   moon.rotation.x += 0.0009;
 
